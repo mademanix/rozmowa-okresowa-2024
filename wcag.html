@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowa Strona WCAG z ARIA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header, nav, main, footer {
+            padding: 1rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+        header {
+            background: #333;
+            color: #fff;
+        }
+        nav {
+            background: #f4f4f4;
+        }
+        main {
+            background: #fff;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header role="banner">
+        <h1 id="site-title">Moja Strona</h1>
+        <p>Witamy na naszej stronie. Tutaj znajdziesz różne informacje.</p>
+        <img src="logo.png" alt="Logo firmy Moja Strona" role="img" aria-label="Logo firmy Moja Strona">
+    </header>
+
+    <nav role="navigation" aria-labelledby="nav-title" aria-label="Menu nawigacyjne">
+        <h2 id="nav-title" class="visually-hidden">Menu Nawigacyjne</h2>
+        <ul>
+            <li><a href="#home" aria-label="Przejdź do strony głównej" aria-current="page">Strona Główna</a></li>
+            <li><a href="#about" aria-label="Dowiedz się więcej o nas">O Nas</a></li>
+            <li><a href="#services" aria-label="Zobacz nasze usługi">Usługi</a></li>
+            <li><a href="#contact" aria-label="Skontaktuj się z nami">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home" tabindex="0" role="region" aria-labelledby="home-heading">
+            <h2 id="home-heading">Witamy na naszej stronie</h2>
+            <p>Nasza strona internetowa jest zgodna z wytycznymi WCAG, co oznacza, że jest dostępna dla wszystkich użytkowników.</p>
+        </section>
+
+        <section id="about" role="region" aria-labelledby="about-heading">
+            <h2 id="about-heading">O Nas</h2>
+            <p>Jesteśmy firmą zajmującą się tworzeniem dostępnych stron internetowych.</p>
+        </section>
+
+        <section id="services" role="region" aria-labelledby="services-heading">
+            <h2 id="services-heading">Nasze Usługi</h2>
+            <ul>
+                <li>Projektowanie stron internetowych</li>
+                <li>Optymalizacja SEO</li>
+                <li>Szkolenia z zakresu dostępności</li>
+            </ul>
+        </section>
+
+        <section id="contact" role="region" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Kontakt</h2>
+            <p>Możesz skontaktować się z nami poprzez poniższy formularz:</p>
+            <form action="/submit" method="post" aria-labelledby="contact-form-heading">
+                <h3 id="contact-form-heading" class="visually-hidden">Formularz kontaktowy</h3>
+                <label for="name">Imię:</label>
+                <input type="text" id="name" name="name" aria-required="true" required aria-describedby="name-description">
+                <p id="name-description" class="visually-hidden">Wprowadź swoje imię.</p>
+                <br>
+                <label for="email">Adres email:</label>
+                <input type="email" id="email" name="email" aria-required="true" required aria-describedby="email-description">
+                <p id="email-description" class="visually-hidden">Wprowadź swój adres email.</p>
+                <br>
+                <label for="message">Wiadomość:</label>
+                <textarea id="message" name="message" aria-required="true" required aria-describedby="message-description"></textarea>
+                <p id="message-description" class="visually-hidden">Wprowadź treść wiadomości.</p>
+                <br>
+                <button type="submit" aria-label="Wyślij formularz">Wyślij</button>
+            </form>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Moja Strona. Wszystkie prawa zastrzeżone.</p>
+        <p><a href="#site-title" aria-label="Powróć na górę strony" aria-current="false">Powrót na górę</a></p>
+    </footer>
+
+</body>
+</html>
