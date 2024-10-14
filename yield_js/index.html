@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Drinków</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #drink-info {
+            margin-top: 20px;
+        }
+        img {
+            width: 300px;
+            height: auto;
+            margin-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<h1>Generator Drinków</h1>
+<button id="next-drink-btn">Następny Drink</button>
+
+<div id="drink-info">
+    <h2 id="drink-name"></h2>
+    <p><strong>Szkło:</strong> <span id="drink-glass"></span></p>
+    <p><strong>Instrukcje:</strong></p>
+    <p id="drink-instructions"></p>
+    <img id="drink-thumb" src="" alt="Drink Image">
+
+    <h3>Składniki:</h3>
+    <table>
+        <thead>
+        <tr>
+            <th>Składnik</th>
+            <th>Ilość</th>
+        </tr>
+        </thead>
+        <tbody id="ingredients-table"></tbody>
+    </table>
+</div>
+
+<script src="drink_yield.js"></script>
+</body>
+</html>
